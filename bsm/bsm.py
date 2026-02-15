@@ -302,6 +302,9 @@ class Manager():
             headers=headers,
             params=self.access_params
         )
+        if response.status_code > 400:
+            print(response.text)
+        response.raise_for_status()
         return BSMResponse(response)
 
 # *****NOT WORKING******Seems to be a lack on server-side functionality
