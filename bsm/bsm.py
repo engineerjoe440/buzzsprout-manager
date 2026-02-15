@@ -47,7 +47,9 @@ class Manager():
         """Checks for Response 200 and returns Bool"""
 
         test_response = self.session.get(
-            f"{self.base_url}/episodes.json", self.access_params)
+            f"{self.base_url}/episodes.json",
+            params=self.access_params
+        )
         return test_response.ok
 
     def _update(self):
